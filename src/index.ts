@@ -33,9 +33,17 @@ import location from "./location/locationRouter";
 import insurance from './insurance/insuranceRouter';
 import maintenance from './maintenance/maintenanceRouter';
 import reservation from './reservation/reservationRouter';
+import cors from 'cors';
 
 const initializeApp = () => {
   const app = express();
+
+
+
+  app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true, // Optional: if you're sending cookies or headers like Authorization
+}));
 
   // MIDDLEWARE
   app.use(express.json());
